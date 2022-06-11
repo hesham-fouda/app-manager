@@ -3,7 +3,7 @@
   "description": "app-manager",
   "type": "library",
   "require": {
-    "php": ">=7.4",
+    "php": "^7.4",
     "ext-dom": "*",
     "ext-zip": "*",
     "ext-mbstring": "*",
@@ -35,7 +35,10 @@
   "autoload": {
     "psr-4": {
       "AppManager\\": "src"
-    }
+    },
+    "files": [
+      "src/Helpers/functions.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {

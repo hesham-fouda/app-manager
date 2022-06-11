@@ -68,10 +68,10 @@
 <div class="flex-center position-ref full-height">
     <div class="content" style="margin-top: 10px">
         @if(session()->has('message'))
-            <div class="alert alert-info col-12 mt-2">{!! nl2br(session()->get('message')) !!}</div>
-            <br>
-            <hr>
-            <br>
+        <div class="alert alert-info col-12 mt-2">{!! nl2br(session()->get('message')) !!}</div>
+        <br>
+        <hr>
+        <br>
         @endif
         <table>
             <thead>
@@ -86,20 +86,20 @@
             </thead>
             <tbody>
             @foreach($packages as $package)
-                <tr>
-                    <td>
-                        <a href="https://github.com/{{$package['name']}}" target="_blank">{{ $package['name'] }}</a>
-                    </td>
-                    <td>{!! wordwrap($package['description'], 80, '<br>') !!}</td>
-                    <td>{{ $package['composer-version'] }}</td>
-                    <td>{{ $package['version'] }}</td>
-                    {{--<td></td>--}}
-                    <td>
-                        <div class="links" style="margin: 5px">
-                            <a href="{{ route($routeName.'.index', ['action' => 'composer', 'command' => 'update', 'package' => $package['name']]) }}">update</a>
-                        </div>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    <a href="https://github.com/{{$package['name']}}" target="_blank">{{ $package['name'] }}</a>
+                </td>
+                <td>{!! wordwrap($package['description'], 80, '<br>') !!}</td>
+                <td>{{ $package['composer-version'] }}</td>
+                <td>{{ $package['version'] }}</td>
+                {{--<td></td>--}}
+                <td>
+                    <div class="links" style="margin: 5px">
+                        <a href="{{ route($routeName.'.index', ['action' => 'composer', 'command' => 'update', 'package' => $package['name']]) }}">update</a>
+                    </div>
+                </td>
+            </tr>
             @endforeach
             </tbody>
         </table>
