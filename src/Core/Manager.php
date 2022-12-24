@@ -77,7 +77,7 @@ class Manager
      */
     protected function injectAppPackages()
     {
-        foreach (array_merge(config('app_manager.packages'), (App::runningInConsole() ? [] : [
+        foreach (array_merge(config('app_manager.packages', []), (App::runningInConsole() ? [] : [
             AppManagerPackage::class,
         ])) as $packageClass) {
             if (class_exists($packageClass)) {
